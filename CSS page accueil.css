@@ -1,0 +1,1033 @@
+/* Style général pour le body */
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f4; /* Couleur de fond douce et naturelle */
+}
+
+html, body {
+    overflow-x: hidden; /* Désactive le défilement horizontal */
+    width: 100%; /* Assure que l'ensemble de la page occupe bien la largeur de l'écran */
+    
+}
+
+
+/* Styles pour l'en-tête et les sections */
+header {
+    background-image: url('Image ECF/Feuilles fougère.jpg');
+    background-size: cover; /* Pour que l'image couvre tout l'en-tête */
+    background-position: center; /* Centre l'image */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    height: 80px; /* Définir une hauteur fixe pour l'en-tête */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header img {
+    height: 130px;
+}
+
+nav {
+    display: flex;
+    flex: 1; /* Occupe l'espace restant entre le logo et les bords */
+    justify-content: center; /* Centre les éléments de navigation horizontalement */
+}
+
+nav a {
+    color: white;
+    font-size: 20px; /* Ajuster la taille de la police ici */
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block; /* Affiche les liens normalement */
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style pour le logo de connexion */
+.login {
+    margin-left: auto; /* Aligne à droite dans le flex container */
+    display: flex;
+    align-items: center; /* Centre l'élément verticalement */
+    position: absolute; /* Positionne l'élément par rapport à son parent le plus proche en position relative */
+    right: 40px; /* Définit la distance par rapport au bord droit */
+    top: 20px; /* Définit la distance par rapport au haut */
+}
+
+.login a {
+    display: block; /* Assure que l'image est un bloc cliquable */
+}
+
+.login-icon {
+    width: 40px; /* Taille de l'icône de connexion */
+    height: 40px; /* Assure que la hauteur est égale à la largeur pour garder la forme ronde */
+    border-radius: 50%; /* Rend l'image ronde */
+    object-fit: cover; /* Assure que l'image couvre le conteneur sans se déformer */
+    cursor: pointer; /* Change le curseur en pointeur au survol */
+}
+
+
+/* Icône du menu burger */
+.menu-burger {
+    display: none; /* Masqué par défaut, affiché sur les petits écrans */
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    position: absolute; /* Positionnement absolu pour le centrer */
+    left: 50%; /* Centrage horizontal */
+    transform: translateX(-50%); /* Ajuste le centrage */
+    z-index: 10; /* Assurez-vous qu'il est au-dessus des autres éléments */
+}
+
+/* Style de base pour le menu de navigation */
+#menu {
+    display: flex; /* Affichage horizontal pour les grands écrans */
+    justify-content: center; /* Centre les éléments horizontalement */
+    margin: 0;
+    padding: 0;
+}
+
+#menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+/* Changer le fond des liens actifs */
+#menu a.active {
+    color: yellow; /* Couleur du lien actif */
+    background-color: rgba(0, 0, 0, 0.3); /* Optionnel : ajoute un fond léger pour mettre en évidence le lien actif */
+}
+
+/* Afficher le menu burger et masquer le menu lors de petits écrans */
+@media (max-width: 768px) {
+    .menu-burger {
+        display: block; /* Afficher le menu burger */
+    }
+
+    #menu {
+        display: none; /* Masquer le menu de navigation par défaut */
+        position: absolute;
+        top: 60px; /* Ajustez selon la hauteur de l'en-tête */
+        left: 0;
+        right: 0;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        z-index: 9; /* Assurez-vous qu'il est au-dessus du contenu */
+    }
+
+    #menu.active {
+        display: flex; /* Afficher le menu lorsque l'icône est cliquée */
+    }
+
+    #menu a {
+        padding: 15px; /* Ajuster le padding pour une meilleure visibilité */
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
+
+/* Style pour le lien actif */
+nav a.active {
+    color: yellow; /* Couleur du lien actif */
+    background-color: rgba(0, 0, 0, 0.3); /* Optionnel : ajoute un fond léger pour mettre en évidence le lien actif */
+}
+
+/* Style pour les liens au survol */
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+
+
+
+/* Styles pour la fenêtre modale */
+.modal {
+    display: none; /* Cachée par défaut */
+    position: fixed; /* Fixe à l'écran */
+    top: 10px; /* Espacement depuis le haut */
+    right: 10px; /* Espacement depuis la droite */
+    width: 300px; /* Largeur de la modale (ajustez selon vos besoins) */
+    background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan sombre avec opacité */
+    color: #fff; /* Texte en blanc */
+    padding: 20px; /* Espacement intérieur */
+    border-radius: 8px; /* Coins arrondis */
+    z-index: 1000; /* Au-dessus des autres éléments */
+}
+
+/* Styles pour le contenu de la modale */
+.modal-content {
+    background-color: #fff; /* Arrière-plan blanc */
+    color: #000; /* Texte en noir */
+    padding: 15px; /* Ajusté pour réduire l'espace intérieur global */
+    border-radius: 5px;
+    position: relative; /* Position relative pour le bouton de fermeture */
+}
+
+/* Styles pour le bouton de fermeture */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Styles pour les éléments du formulaire dans la modale */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Réduit l'espace sous les labels */
+.modal-content label {
+    margin-bottom: 2px; /* Réduit l'espace sous les labels */
+}
+
+/* Réduit l'espace sous la liste déroulante */
+.modal-content select {
+    margin-bottom: 4px; /* Réduit l'espace sous la liste déroulante */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Réduit l'espace sous les champs du formulaire */
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    margin-bottom: 4px; /* Réduit l'espace sous les champs du formulaire */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Réduit l'espace au-dessus du bouton de soumission */
+.modal-content input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Réduit l'espace au-dessus du bouton de soumission */
+}
+
+.modal-content input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Styles pour le titre dans la modale */
+.modal-content h2 {
+    font-size: 25px; /* Taille de la police pour le titre */
+    margin-top: 0; /* Supprimez la marge supérieure */
+    margin-bottom: 10px; /* Réduit l'espace sous le titre */
+}
+
+
+
+
+/* Conteneur principal du diaporama */
+.slideshow-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Conteneur des diapositives avec effet de défilement */
+.slides-wrapper {
+    display: flex;
+    transition: transform 1s ease-in-out; /* Transition fluide */
+}
+
+/* Style pour chaque diapositive */
+.slides {
+    min-width: 100vw; /* Chaque diapositive prend toute la largeur de l'écran */
+    height: 100vh;
+    flex-shrink: 0; /* Assurez-vous que chaque diapositive conserve sa taille */
+}
+
+/* Images dans les diapositives */
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Flèches de navigation */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Points indicateurs */
+.dots-container {
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+/* Styles pour le contenu de la page */
+.centered-text {
+    text-align: center;
+    font-size: 1.2em; /* Ajuste la taille de la police */
+    font-family: 'Merienda', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Police conviviale et naturelle */
+    margin: 0 auto;
+    max-width: 800px; /* Limite la largeur du texte pour un meilleur affichage */
+    line-height: 1.6; /* Espace entre les lignes pour améliorer la lisibilité */
+    color: #2f4f4f; /* Couleur agréable et naturelle */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left-images, .right-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Aligne les éléments au centre */
+}
+
+.round-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; /* Assurer que l'image couvre le conteneur sans se déformer */
+    margin: 10px;
+}
+
+/* Sections */
+section {
+    padding: 30px 5px;
+    margin: 5px;
+}
+
+#habitats {
+    padding-top: 80px; /* Ajustez ce padding pour qu'il soit légèrement plus grand que la hauteur de l'en-tête */
+    padding: 60px;
+    text-align: center;
+}
+
+.habitats {
+    display: flex;
+    flex-direction: row; /* Alignement horizontal */
+    justify-content: space-between; /* Espace entre les éléments */
+    gap: 20px; /* Espace entre les colonnes */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+}
+
+.habitat-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centre le contenu verticalement */
+    height: 100%; /* Assure que le contenu prend toute la hauteur disponible du lien */
+    padding: 10px; /* Ajoute du padding autour du contenu */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur et la hauteur du conteneur */
+    text-align: center; /* Centre le texte à l'intérieur du conteneur */
+    transition: transform 0.3s ease; /* Effet de transition pour le zoom */
+    width: calc(33.333% - 20px); /* Permet de s'ajuster pour trois éléments par ligne */
+}
+
+/* Effet de zoom pour les éléments individuels dans Habitats et Services */
+.habitats .habitat-content, .services div {
+    transition: transform 0.3s ease; /* Transition douce pour l'effet de zoom */
+    transform: scale(1); /* Assurez-vous que l'échelle initiale est 1 */
+}
+
+.habitats .habitat-content:hover, .services div:hover {
+    transform: scale(1.1); /* Applique le zoom uniquement lors du survol */
+}
+
+.habitat-link {
+    text-decoration: none; /* Supprime la sous-ligne des liens */
+    color: inherit; /* Conserve la couleur du texte de l'élément parent */
+}
+
+.habitat-content img {
+    width: 100%; /* Les images occupent toute la largeur du conteneur */
+    height: auto; /* Hauteur automatique pour maintenir le ratio d'aspect */
+    max-height: 200px; /* Hauteur maximale pour les images */
+    object-fit: cover; /* Maintient le ratio d'aspect tout en couvrant le conteneur */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    display: block; /* Élimine les espaces blancs sous les images */
+    margin-bottom: 10px; /* Espace sous l'image pour séparer du texte */
+}
+
+
+
+/* Nos services */
+#services {
+    padding: 60px;
+    text-align: center;
+}
+
+.services {
+    display: flex;
+    flex-direction: row; /* Alignement horizontal */
+    justify-content: space-between; /* Espace entre les éléments */
+    gap: 20px; /* Espace entre les colonnes */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+}
+
+.services > div {
+    flex: 1 1 calc(33.333% - 20px); /* Permet aux éléments de s'ajuster à la largeur du conteneur */
+    max-width: calc(33.333% - 20px); /* Limite la largeur pour aligner horizontalement */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur et la hauteur du conteneur */
+    text-align: center; /* Centre le texte à l'intérieur du conteneur */
+    margin-bottom: 20px; /* Espace sous les éléments pour les séparer les uns des autres */
+
+}
+
+
+.services img {
+    width: 100%; /* Les images occupent toute la largeur du conteneur */
+    height: auto; /* Hauteur automatique pour maintenir le ratio d'aspect */
+    max-height: 200px; /* Hauteur maximale pour les images */
+    object-fit: cover; /* Maintient le ratio d'aspect tout en couvrant le conteneur */
+    border-radius: 10px; /* Coins légèrement arrondis */
+    display: block; /* Élimine les espaces blancs sous les images */
+    margin-bottom: 10px; /* Espace sous l'image pour séparer du texte */
+}
+
+.service-link {
+    text-decoration: none; /* Supprime la sous-ligne des liens */
+    color: inherit; /* Conserve la couleur du texte de l'élément parent */
+}
+
+/* Style pour les écrans plus grands */
+@media (min-width: 768px) {
+    nav a {
+        display: block; /* Affiche les liens sur les grands écrans */
+    }
+
+    .menu-burger {
+        display: none;
+    }
+
+    /* Assure que les sections sont alignées horizontalement pour grands écrans */
+    #habitats, #services {
+        flex-direction: row; /* Alignement horizontal pour grands écrans */
+    }
+}
+
+/* Menu burger pour petits écrans */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        background-color: #333;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu-burger {
+        display: block; /* Affiche l'icône du menu burger */
+    }
+
+    #menu {
+        display: none; /* Masquer le menu par défaut sur les petits écrans */
+        flex-direction: column;
+        position: absolute;
+        top: 80px; /* Positionne le menu sous l'en-tête */
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9); /* Fond sombre pour le menu */
+        width: 100%;
+        text-align: center;
+        z-index: 1000; /* Assure que le menu est au-dessus du contenu */
+    }
+
+    #menu a {
+        padding: 15px;
+        font-size: 18px; /* Ajuste la taille de la police pour les petits écrans */
+        display: block; /* Assure que chaque lien est un bloc séparé */
+    }
+
+    #menu.show {
+        display: flex; /* Affiche le menu de navigation lorsque le menu burger est cliqué */
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-images, .right-images {
+        flex-direction: row;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .round-image {
+        width: 120px; /* Réduire légèrement la taille des images pour mobile */
+        height: 120px;
+    }
+
+    .center-paragraph {
+        margin: 20px 0;
+    }
+
+    /* Assure que les sections sont alignées verticalement pour petits écrans */
+    #habitats, #services {
+        flex-direction: column; /* Alignement vertical pour petits écrans */
+    }
+}
+
+.zoom {
+    transition: transform 0.3s ease;
+}
+
+.zoom:hover {
+    transform: scale(1.1); /* Ajustez le facteur de zoom selon vos besoins */
+}
+
+/* Assurez-vous que la police Merienda est importée */
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+/* Appliquer la police Merienda aux titres <h2> */
+h2 {
+    font-family: 'Merienda', cursive; /* Utiliser la police Merienda */
+    font-size: 60px;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+h3 {
+    font-size: 25px;
+    margin: 10px 0; /* Marge au-dessus et en dessous des titres */
+}
+
+
+/* ========= Section Animaux ========= */
+
+/* Style général pour la section des animaux */
+#animaux {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+
+
+/* Grille des images des animaux */
+.animals-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 colonnes de largeur égale */
+    gap: 20px; /* Espacement entre les éléments de la grille */
+    row-gap: 30px; /* Espacement spécifique entre les lignes */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style pour chaque élément de la grille */
+.animal-item {
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Ajout d'un léger espace entre l'image et le texte */
+.animal-item p {
+    margin-top: 3px !important; /* Ajoute un espace entre l'image et le texte */
+    font-size: 20px !important; /* Taille du texte */
+    color: #333; /* Couleur du texte */
+    text-align: center; /* Assurez-vous que le texte soit bien centré */
+}
+
+/* Style des images rondes avec amélioration de la qualité */
+.animal-item img {
+    width: 100px; /* Ajustez selon vos besoins */
+    height: 100px; /* Ajustez selon vos besoins */
+    border-radius: 50%; /* Forme ronde */
+    object-fit: cover; /* Maintient la qualité en remplissant le conteneur */
+    image-rendering: -webkit-optimize-contrast; /* Améliore la netteté sur Webkit (Chrome, Safari) */
+    image-rendering: -moz-crisp-edges; /* Améliore la netteté sur Firefox */
+    image-rendering: crisp-edges; /* Améliore la netteté pour les navigateurs modernes */
+    filter: brightness(1.1) contrast(1.2); /* Ajuste la luminosité et le contraste */
+    display: block; /* Évite les espaces blancs autour de l'image */
+    margin: 0 auto; /* Centre l'image dans son conteneur */
+    transition: transform 0.3s ease-in-out;
+}
+
+.animal-title {
+    margin-top: 10px; /* Espace entre l'image et le titre */
+    font-size: 14px; /* Taille du texte pour les titres */
+    color: #333; /* Couleur du texte (ajustez selon vos besoins) */
+    font-family: 'Arial', sans-serif; /* Police pour les titres */
+    text-align: center;
+}
+
+.animal-item a {
+    text-decoration: none; /* Retire le soulignement */
+    color: inherit; /* Utilise la couleur du texte par défaut (héritée) */
+}
+
+.animal-item:hover img {
+    transform: scale(1.1); /* Zoom sur l'image */
+}
+
+.animal-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2); /* Ajoute une légère ombre */
+}
+
+.animal-item a:hover {
+    text-decoration: none; /* Assurez-vous que le soulignement ne réapparaisse pas au survol */
+}
+
+
+/* Styles pour la section Avis des Visiteurs */
+#avis-visiteurs {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9; /* Fond léger pour la section */
+}
+
+#avis-visiteurs h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.stars {
+    display: flex;
+    justify-content: center; /* Pour centrer les étoiles */
+    margin-bottom: 10px; /* Optionnel : ajustez l'espacement entre les étoiles et le texte */
+}
+
+.star {
+    font-size: 20px; /* Vous pouvez ajuster la taille des étoiles */
+    color: #FFD700; /* Couleur des étoiles dorées */
+    margin-right: 5px; /* Espacement entre les étoiles */
+}
+
+.avis-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.avis-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.avis-grid {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.avis-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    flex: 0 0 auto;
+    margin: 10px;
+}
+
+.avis-item p {
+    font-size: 16px;
+    font-style: italic;
+    color: #555;
+}
+
+.avis-item span {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+
+
+/* Styles pour la fenêtre modale */
+.modal {
+    display: none; /* Cachée par défaut */
+    position: fixed; /* Fixe à l'écran */
+    top: 10px; /* Espacement depuis le haut */
+    right: 10px; /* Espacement depuis la droite */
+    width: 300px; /* Largeur de la modale (ajustez selon vos besoins) */
+    background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan sombre avec opacité */
+    color: #fff; /* Texte en blanc */
+    padding: 20px; /* Espacement intérieur */
+    border-radius: 8px; /* Coins arrondis */
+    z-index: 1000; /* Au-dessus des autres éléments */
+}
+
+/* Styles pour le contenu de la modale */
+.modal-content {
+    background-color: #fff; /* Arrière-plan blanc */
+    color: #000; /* Texte en noir */
+    padding: 15px; /* Ajusté pour réduire l'espace intérieur global */
+    border-radius: 5px;
+    position: relative; /* Position relative pour le bouton de fermeture */
+}
+
+/* Styles pour le bouton de fermeture */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Styles pour les éléments du formulaire dans la modale */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Réduit l'espace sous les labels */
+.modal-content label {
+    margin-bottom: 2px; /* Réduit l'espace sous les labels */
+}
+
+/* Réduit l'espace sous la liste déroulante */
+.modal-content select {
+    margin-bottom: 4px; /* Réduit l'espace sous la liste déroulante */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Réduit l'espace sous les champs du formulaire */
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    margin-bottom: 4px; /* Réduit l'espace sous les champs du formulaire */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Réduit l'espace au-dessus du bouton de soumission */
+.modal-content input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Réduit l'espace au-dessus du bouton de soumission */
+}
+
+.modal-content input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Styles pour le titre dans la modale */
+.modal-content h2 {
+    font-size: 25px; /* Taille de la police pour le titre */
+    margin-top: 0; /* Supprimez la marge supérieure */
+    margin-bottom: 10px; /* Réduit l'espace sous le titre */
+}
+
+#leave-review {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  #leave-review h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  #leave-review input, 
+  #leave-review textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #leave-review button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #leave-review button:hover {
+    background-color: #45a049;
+  }
+  
+
+
+
+/* Astérisque rouge pour les champs obligatoires */
+.required {
+    color: red;
+  }
+  
+  /* Astérisque rouge pour les champs obligatoires */
+.required {
+    color: red;
+  }
+  
+ /* Style des étoiles */
+.star-rating {
+    display: flex;
+    direction: rtl; /* De droite à gauche */
+    justify-content: center; /* Centrer les étoiles horizontalement */
+    align-items: center; /* Centrer les étoiles verticalement (si nécessaire) */
+  }
+  
+  .star-rating input {
+    display: none; /* Masquer les boutons radio */
+  }
+  
+  .star-rating label {
+    font-size: 40px; /* Augmenter la taille des étoiles */
+    color: #ccc; /* Couleur grise pour les étoiles non sélectionnées */
+    cursor: pointer;
+    margin: 0 2px; /* Ajouter un petit espace entre les étoiles */
+  }
+  
+  /* Colorer les étoiles sélectionnées et celles à droite */
+  .star-rating input:checked ~ label {
+    color: #FFD700; /* Jaune pour les étoiles sélectionnées */
+  }
+  
+  .star-rating input:checked + label,
+  .star-rating input:checked + label ~ label {
+    color: #FFD700; /* Jaune pour les étoiles sélectionnées et toutes celles à droite */
+  }
+  
+  .star-rating label:hover,
+  .star-rating label:hover ~ label {
+    color: #FFD700; /* Survoler met toutes les étoiles jaunes */
+  }
+
+
+/* Propriétés spécifiques pour les écrans haute résolution */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .animal-item img {
+        image-rendering: -webkit-optimize-contrast; /* Pour Webkit */
+        image-rendering: -moz-crisp-edges; /* Pour Firefox */
+        image-rendering: crisp-edges; /* Pour les autres navigateurs modernes */
+    }
+}
+
+/* Style pour le titre sous chaque image */
+.animal-item p {
+    margin: 0;
+    font-size: 1em;
+    
+}
+
+/* Réglages pour les écrans plus petits */
+@media (max-width: 1200px) {
+    .animals-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur les écrans moyens */
+    }
+}
+
+@media (max-width: 900px) {
+    .animals-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur les écrans plus petits */
+    }
+}
+
+@media (max-width: 600px) {
+    .animals-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les petits écrans */
+    }
+}
+
+@media (max-width: 400px) {
+    .animals-grid {
+        grid-template-columns: 1fr; /* 1 colonne sur les très petits écrans */
+    }
+}
+
+
+
+
+
+
+
+
+
+  footer {
+    text-align: center; /* Centre le texte et le contenu */
+    padding: 20px; /* Ajoute un espace autour du contenu */
+    background-color: #333; /* Couleur de fond du footer */
+    color: #fff; /* Couleur du texte */
+    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+  
+  }
+  
+  footer p {
+    margin: 0; /* Retire les marges par défaut */
+    font-size: 14px; /* Taille du texte */
+  }
+  
+  footer a {
+    color: #fff; /* Couleur des liens en blanc */
+    text-decoration: none; /* Retire le soulignement des liens */
+    margin: 0 10px; /* Espace entre les liens */
+  }
+  
+  footer a:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol */
+  }
+  
+  /* Styles pour les informations horaires et l'adresse */
+  .footer-info {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    padding: 20px; /* Ajoute un espace autour du contenu */
+    gap: 50px; /* Espace entre les sections */
+  }
+  
+  .zoo-hours, .contact-info {
+    margin-bottom: 10px; /* Ajoute un espace entre les éléments */
+  }
+  
+  .zoo-hours h3 {
+    margin-bottom: 10px; /* Ajoute un espace sous le titre des horaires */
+  }
+  
+  /* Séparation et alignement */
+  .zoo-hours, .contact-info {
+    flex: 1; /* Prend tout l'espace disponible */
+    text-align: center; /* Centre les sections */
+  }
+  
+  .footer-content {
+    padding-top: 10px; /* Ajoute un espace au-dessus de la bordure */
+  }
+  
+  @media (max-width: 768px) {
+    .footer-info {
+      flex-direction: column; /* Dispose les sections en colonne sur les petits écrans */
+      text-align: center; /* Centre le texte sur les petits écrans */
+    }
+  }
+  
+
+ /* Styles pour la carte Google Maps */
+.map-container {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .map-container iframe {
+    width: 100%;
+    height: 200px; /* Hauteur réduite pour la carte */
+    max-width: 400px; /* Largeur maximale de la carte */
+    border: none;
+  }
+  
+  @media (min-width: 768px) {
+    .map-container iframe {
+      width: 400px; /* Largeur fixe pour les écrans plus larges */
+      height: 300px; /* Hauteur ajustée */
+    }
+  }
+  

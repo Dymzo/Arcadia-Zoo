@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Zoo Arcadia</title>
+    <link href="CSS page contact.css" rel="stylesheet" />
+
+    <!-- Lien vers la page accueil -->
+    <a href="index.html"></a>
+    <!-- Lien vers la page habitats -->
+    <a href="Page habitats.html"></a>
+    <!-- Lien vers la page services -->
+    <a href="Page services.html"></a>
+    <!-- Lien vers la page animaux -->
+    <a href="Page_animaux.html"></a>
+    <!-- Lien vers la page contact -->
+    <a href="Page_contact.html"></a>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Début de la section Header -->
+    <header>
+        <a href="index.html">
+            <img src="Image ECF/Designer__41_-removebg-preview.png" alt="Logo du Zoo">
+        </a>
+
+        <!-- Menu burger pour mobile -->
+        <span class="menu-burger" onclick="toggleMenu()">&#9776;</span>
+
+        <!-- Navigation principale -->
+        <nav id="menu">
+            <a href="index.html">Accueil</a>
+            <a href="Page habitats.html">Habitats</a>
+            <a href="Page services.html" >Services</a>
+            <a href="Page_animaux.html" >Animaux</a>
+            <a href="Page_contact.html" class="active">Contact</a>
+        </nav>
+
+        <!-- Icône de connexion -->
+        <div class="login">
+            <img src="Image ECF/Login logo.png" alt="Connexion" class="login-icon" onclick="openModal()">
+        </div>
+
+       <!-- La fenêtre modale -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Connexion</h2>
+        <!-- Contenu de la fenêtre modale, par exemple, un formulaire de connexion -->
+        <form action="page-connexion.php" method="post">
+            <label for="role">Choisissez votre rôle:</label>
+            <select id="role" name="role" required>
+                <option value="" disabled selected>Sélectionner un rôle</option>
+                <option value="veterinaire">Vétérinaire</option>
+                <option value="employe">Employé</option>
+                <option value="administrateur">Administrateur</option>
+            </select><br><br>
+
+            <label for="username">Nom d'utilisateur:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <input type="submit" value="Se connecter">
+        </form>
+    </div>
+</div>
+    </header>
+
+    <!-- Section Contact -->
+    <main>
+        <div class="contact-container">
+            <h1>Nous Contacter</h1>
+            <form action="submit-contact-form.php" method="post">
+                <label for="email">Votre adresse e-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="subject">Objet:</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
+    </main>
+
+ <!-- Début du Footer -->
+ <footer>
+    <!-- Autres Sections du Footer -->
+    <div class="footer-content">
+      <p>© 2024 Zoo Arcadia - Tous droits réservés.</p>
+        <a href="#">Mentions légales</a> |
+        <a href="#">Politique de confidentialité</a> |
+        <a href="Page_contact.html">Contactez-nous</a>
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Fin du Footer -->
+
+
+    <script src="Javascript page contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+/* Style général pour le body */ 
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f4; /* Couleur de fond douce et naturelle */
+}
+
+/* Styles pour l'en-tête et les sections */
+header {
+    background-image: url('Image ECF/Feuilles fougère.jpg'); /* Chemin absolu */
+    background-size: cover; /* Pour que l'image couvre tout l'en-tête */
+    background-position: center; /* Centre l'image */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    height: 80px; /* Définir une hauteur fixe pour l'en-tête */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header img {
+    height: 130px;
+}
+
+nav {
+    display: flex;
+    flex: 1; /* Occupe l'espace restant entre le logo et les bords */
+    justify-content: center; /* Centre les éléments de navigation horizontalement */
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    font-size: 20px; /* Ajuster la taille de la police ici */
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block; /* Affiche les liens normalement */
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style pour le logo de connexion */
+.login {
+    margin-left: auto; /* Aligne à droite dans le flex container */
+    display: flex;
+    align-items: center; /* Centre l'élément verticalement */
+    position: absolute; /* Positionne l'élément par rapport à son parent le plus proche en position relative */
+    right: 40px; /* Définit la distance par rapport au bord droit */
+    top: 20px; /* Définit la distance par rapport au haut */
+}
+
+.login a {
+    display: block; /* Assure que l'image est un bloc cliquable */
+}
+
+.login-icon {
+    width: 40px; /* Taille de l'icône de connexion */
+    height: 40px; /* Assure que la hauteur est égale à la largeur pour garder la forme ronde */
+    border-radius: 50%; /* Rend l'image ronde */
+    object-fit: cover; /* Assure que l'image couvre le conteneur sans se déformer */
+    cursor: pointer; /* Change le curseur en pointeur au survol */
+}
+
+/* Icône du menu burger */
+.menu-burger {
+    display: none; /* Masqué par défaut, affiché sur les petits écrans */
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    position: absolute; /* Positionnement absolu pour le centrer */
+    left: 50%; /* Centrage horizontal */
+    transform: translateX(-50%); /* Ajuste le centrage */
+    z-index: 10; /* Assurez-vous qu'il est au-dessus des autres éléments */
+}
+
+/* Style de base pour le menu de navigation */
+#menu {
+    display: flex; /* Affichage horizontal pour les grands écrans */
+    justify-content: center; /* Centre les éléments horizontalement */
+    margin: 0;
+    padding: 0;
+}
+
+#menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+/* Changer le fond des liens actifs */
+#menu a.active {
+    color: yellow; /* Couleur du lien actif */
+    background-color: rgba(0, 0, 0, 0.3); /* Optionnel : ajoute un fond léger pour mettre en évidence le lien actif */
+}
+
+/* Afficher le menu burger et masquer le menu lors de petits écrans */
+@media (max-width: 768px) {
+    .menu-burger {
+        display: block; /* Afficher le menu burger */
+    }
+
+    #menu {
+        display: none; /* Masquer le menu de navigation par défaut */
+        position: absolute;
+        top: 60px; /* Ajustez selon la hauteur de l'en-tête */
+        left: 0;
+        right: 0;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        z-index: 9; /* Assurez-vous qu'il est au-dessus du contenu */
+    }
+
+    #menu.active {
+        display: flex; /* Afficher le menu lorsque l'icône est cliquée */
+    }
+
+    #menu a {
+        padding: 15px; /* Ajuster le padding pour une meilleure visibilité */
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
+
+/* Style pour le lien actif */
+nav a.active {
+    color: yellow; /* Couleur du lien actif */
+    background-color: rgba(0, 0, 0, 0.3); /* Optionnel : ajoute un fond léger pour mettre en évidence le lien actif */
+}
+
+/* Style pour les liens au survol */
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+
+main {
+    padding-top: 80px; /* Ajuste la valeur selon la hauteur de ton en-tête */
+}

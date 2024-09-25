@@ -1,0 +1,578 @@
+/* Style général pour le body */ 
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f4; /* Couleur de fond douce et naturelle */
+}
+
+/* Styles pour l'en-tête et les sections */
+header {
+    background-image: url('Image ECF/Feuilles fougère.jpg'); /* Chemin absolu */
+    background-size: cover; /* Pour que l'image couvre tout l'en-tête */
+    background-position: center; /* Centre l'image */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    height: 80px; /* Définir une hauteur fixe pour l'en-tête */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header img {
+    height: 130px;
+}
+
+nav {
+    display: flex;
+    flex: 1; /* Occupe l'espace restant entre le logo et les bords */
+    justify-content: center; /* Centre les éléments de navigation horizontalement */
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    font-size: 20px; /* Ajuster la taille de la police ici */
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block; /* Affiche les liens normalement */
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style pour le logo de connexion */
+.login {
+    margin-left: auto; /* Aligne à droite dans le flex container */
+    display: flex;
+    align-items: center; /* Centre l'élément verticalement */
+    position: absolute; /* Positionne l'élément par rapport à son parent le plus proche en position relative */
+    right: 40px; /* Définit la distance par rapport au bord droit */
+    top: 20px; /* Définit la distance par rapport au haut */
+}
+
+.login a {
+    display: block; /* Assure que l'image est un bloc cliquable */
+}
+
+.login-icon {
+    width: 40px; /* Taille de l'icône de connexion */
+    height: 40px; /* Assure que la hauteur est égale à la largeur pour garder la forme ronde */
+    border-radius: 50%; /* Rend l'image ronde */
+    object-fit: cover; /* Assure que l'image couvre le conteneur sans se déformer */
+    cursor: pointer; /* Change le curseur en pointeur au survol */
+}
+
+/* Icône du menu burger */
+.menu-burger {
+    display: none; /* Masqué par défaut, affiché sur les petits écrans */
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    position: absolute; /* Positionnement absolu pour le centrer */
+    left: 50%; /* Centrage horizontal */
+    transform: translateX(-50%); /* Ajuste le centrage */
+    z-index: 10; /* Assurez-vous qu'il est au-dessus des autres éléments */
+}
+
+/* Style de base pour le menu de navigation */
+#menu {
+    display: flex; /* Affichage horizontal pour les grands écrans */
+    justify-content: center; /* Centre les éléments horizontalement */
+    margin: 0;
+    padding: 0;
+}
+
+#menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+/* Changer le fond des liens actifs */
+#menu a.active {
+    color: yellow; /* Couleur du lien actif */
+    background-color: rgba(0, 0, 0, 0.3); /* Optionnel : ajoute un fond léger pour mettre en évidence le lien actif */
+}
+
+/* Afficher le menu burger et masquer le menu lors de petits écrans */
+@media (max-width: 768px) {
+    .menu-burger {
+        display: block; /* Afficher le menu burger */
+    }
+
+    #menu {
+        display: none; /* Masquer le menu de navigation par défaut */
+        position: absolute;
+        top: 60px; /* Ajustez selon la hauteur de l'en-tête */
+        left: 0;
+        right: 0;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        z-index: 9; /* Assurez-vous qu'il est au-dessus du contenu */
+    }
+
+    #menu.active {
+        display: flex; /* Afficher le menu lorsque l'icône est cliquée */
+    }
+
+    #menu a {
+        padding: 15px; /* Ajuster le padding pour une meilleure visibilité */
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
+
+/* Style pour le lien actif */
+nav a.active {
+    color: yellow; /* Couleur du lien actif */
+    background-color: rgba(0, 0, 0, 0.3); /* Optionnel : ajoute un fond léger pour mettre en évidence le lien actif */
+}
+
+/* Style pour les liens au survol */
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Styles pour la fenêtre modale */
+.login-modal {
+    display: none; /* Cachée par défaut */
+    position: fixed; /* Fixe à l'écran */
+    top: 10px; /* Espacement depuis le haut */
+    right: 10px; /* Espacement depuis la droite */
+    width: 300px; /* Largeur de la modale (ajustez selon vos besoins) */
+    background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan sombre avec opacité */
+    color: #fff; /* Texte en blanc */
+    padding: 20px; /* Espacement intérieur */
+    border-radius: 8px; /* Coins arrondis */
+    z-index: 1000; /* Au-dessus des autres éléments */
+}
+
+/* Styles pour le contenu de la modale */
+.login-modal-content {
+    background-color: #fff; /* Arrière-plan blanc */
+    color: #000; /* Texte en noir */
+    padding: 15px; /* Ajusté pour réduire l'espace intérieur global */
+    border-radius: 5px;
+    position: relative; /* Position relative pour le bouton de fermeture */
+}
+
+/* Styles pour le bouton de fermeture */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Styles pour les éléments du formulaire dans la modale */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Réduit l'espace sous les labels */
+.modal-content label {
+    margin-bottom: 2px; /* Réduit l'espace sous les labels */
+}
+
+/* Réduit l'espace sous la liste déroulante */
+.modal-content select {
+    margin-bottom: 4px; /* Réduit l'espace sous la liste déroulante */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Réduit l'espace sous les champs du formulaire */
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    margin-bottom: 4px; /* Réduit l'espace sous les champs du formulaire */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Réduit l'espace au-dessus du bouton de soumission */
+.modal-content input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Réduit l'espace au-dessus du bouton de soumission */
+}
+
+.modal-content input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Styles pour le titre dans la modale */
+.modal-content h2 {
+    font-size: 15px; /* Taille de la police pour le titre */
+    margin-top: 0; /* Supprimez la marge supérieure */
+    margin-bottom: 10px; /* Réduit l'espace sous le titre */
+}
+
+
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+    .login-modal {
+        width: 90%; /* Adapte la modale pour les petits écrans */
+        padding: 10px;
+    }
+
+    .modal-content {
+        padding: 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 22px;
+    }
+}
+
+
+/* Assurez-vous que la police Merienda est importée */
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+/* Appliquer la police Merienda aux titres <h2> */
+h2 {
+    font-family: 'Merienda', cursive; /* Utiliser la police Merienda */
+    font-size: 60px;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/* ========= Section Animaux ========= */
+
+/* Style général pour la section des animaux */
+#animaux {
+    padding: 150px;
+    text-align: center;
+}
+
+
+
+/* Grille des images des animaux */
+.animals-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 colonnes de largeur égale */
+    gap: 20px; /* Espacement entre les éléments de la grille */
+    row-gap: 30px; /* Espacement spécifique entre les lignes */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style pour chaque élément de la grille */
+.animal-item {
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Ajout d'un léger espace entre l'image et le texte */
+.animal-item p {
+    margin-top: 3px !important; /* Ajoute un espace entre l'image et le texte */
+    font-size: 20px !important; /* Taille du texte */
+    color: #333; /* Couleur du texte */
+    text-align: center; /* Assurez-vous que le texte soit bien centré */
+}
+
+/* Style des images rondes avec amélioration de la qualité */
+.animal-item img {
+    width: 100px; /* Ajustez selon vos besoins */
+    height: 100px; /* Ajustez selon vos besoins */
+    border-radius: 50%; /* Forme ronde */
+    object-fit: cover; /* Maintient la qualité en remplissant le conteneur */
+    image-rendering: -webkit-optimize-contrast; /* Améliore la netteté sur Webkit (Chrome, Safari) */
+    image-rendering: -moz-crisp-edges; /* Améliore la netteté sur Firefox */
+    image-rendering: crisp-edges; /* Améliore la netteté pour les navigateurs modernes */
+    filter: brightness(1.1) contrast(1.2); /* Ajuste la luminosité et le contraste */
+    display: block; /* Évite les espaces blancs autour de l'image */
+    margin: 0 auto; /* Centre l'image dans son conteneur */
+    transition: transform 0.3s ease-in-out;
+}
+
+.animal-title {
+    margin-top: 10px; /* Espace entre l'image et le titre */
+    font-size: 14px; /* Taille du texte pour les titres */
+    color: #333; /* Couleur du texte (ajustez selon vos besoins) */
+    font-family: 'Arial', sans-serif; /* Police pour les titres */
+    text-align: center;
+}
+
+.animal-item a {
+    text-decoration: none; /* Retire le soulignement */
+    color: inherit; /* Utilise la couleur du texte par défaut (héritée) */
+}
+
+.animal-item:hover img {
+    transform: scale(1.1); /* Zoom sur l'image */
+}
+
+.animal-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2); /* Ajoute une légère ombre */
+}
+
+.animal-item a:hover {
+    text-decoration: none; /* Assurez-vous que le soulignement ne réapparaisse pas au survol */
+}
+
+
+
+/* Styles pour le footer */
+footer {
+    text-align: center; /* Centre le texte et le contenu */
+    padding: 20px; /* Ajoute un espace autour du contenu */
+    background-color: #333; /* Couleur de fond du footer */
+    color: #fff; /* Couleur du texte */
+    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+    width: 100%; /* Assure que le footer occupe toute la largeur de l'écran */
+   
+}
+
+footer p {
+    margin: 0; /* Retire les marges par défaut */
+    font-size: 14px; /* Taille du texte */
+}
+
+footer a {
+    color: #fff; /* Couleur des liens en blanc */
+    text-decoration: none; /* Retire le soulignement des liens */
+    margin: 0 10px; /* Espace entre les liens */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+
+
+
+
+/* Styles pour la modale des animaux */
+.animal-modal {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Fixé à la vue */
+    z-index: 1; /* Au-dessus des autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Ajoute une barre de défilement si nécessaire */
+    background-color: rgba(0,0,0,0.4); /* Couleur de fond semi-transparente */
+}
+
+
+
+/* Styles pour la modale des animaux */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Reste en place */
+    z-index: 1; /* Au-dessus des autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%; /* Plein écran */
+    height: 100%; /* Plein écran */
+    overflow: auto; /* Ajouter une barre de défilement si nécessaire */
+    background-color: rgba(0,0,0,0.8); /* Fond sombre */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largeur modale */
+    max-width: 1000px; /* Largeur maximale modale */
+    height: 50%; /* Hauteur de la modale */
+    max-height: 600px; /* Hauteur maximale modale */
+    display: flex;
+    position: relative; /* Pour positionner la croix relativement à ce conteneur */
+    box-sizing: border-box; /* Inclut la bordure et le padding dans les dimensions de l'élément */
+}
+
+.modal-image-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Cache les parties de l'image qui débordent */
+}
+
+#modalImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Assure que l'image ne se déforme pas */
+
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.modal-info {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+/* Responsivité pour les petits écrans */
+@media screen and (max-width: 768px) {
+    .menu-burger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    header img {
+        height: 100px; /* Ajuster la taille du logo pour les petits écrans */
+    }
+
+    .login-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .animals-grid {
+        padding: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Réduit le nombre de colonnes sur les petits écrans */
+    }
+
+    .animal-item p {
+        font-size: 16px !important; /* Réduit la taille de la police pour les petits écrans */
+    }
+    .modal-content {
+        width: 90%; /* Ajuste la largeur sur les petits écrans */
+        height: auto; /* S'ajuste automatiquement en hauteur */
+        margin: 20% auto; /* Ajoute plus d'espace entre la fenêtre modale et le haut de l'écran */
+    }
+
+    .modal-info {
+        padding-left: 10px; /* Réduction du padding pour plus d'espace */
+    }
+
+    h3, p {
+        font-size: 14px; /* Réduit la taille de la police sur les petits écrans */
+    }
+
+    .nav-button {
+        font-size: 18px; /* Réduit la taille des flèches sur les petits écrans */
+        padding: 8px; /* Réduction de la taille des boutons */
+    }
+}
+
+
+/* Styles généraux pour les écrans de taille moyenne */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Ajustements pour l'en-tête */
+    header {
+        padding: 10px 20px; /* Un peu plus de padding pour les écrans moyens */
+        height: auto; /* Permet une hauteur dynamique selon le contenu */
+    }
+
+    header img {
+        height: 100px; /* Taille du logo pour les écrans moyens */
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row; /* Conserve l'orientation horizontale pour les écrans moyens */
+        justify-content: space-around; /* Espacement entre les éléments du menu */
+    }
+
+    .menu-burger {
+        display: none; /* Le menu hamburger n'est pas nécessaire pour les écrans moyens */
+    }
+
+    .login {
+        position: relative; /* Ajuste la position du login */
+        margin: 0;
+    }
+
+    .animals-grid {
+        padding: 20px; /* Ajuste le padding pour les écrans moyens */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Plus d'espace pour chaque élément */
+    }
+
+    .animal-item p {
+        font-size: 18px !important; /* Ajuste la taille de la police pour une lisibilité confortable */
+    }
+
+    .animal-modal-content {
+        width: 90%; /* Ajuste la largeur de la fenêtre modale pour les écrans moyens */
+    }
+
+    .animal-thumbnail {
+        width: 120px; /* Taille du thumbnail pour les écrans moyens */
+        height: 120px;
+    }
+}

@@ -1,0 +1,317 @@
+/* Style général pour le body */ 
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f4; /* Couleur de fond douce et naturelle */
+}
+
+/* Styles pour l'en-tête et les sections */
+header {
+    background-image: url('Image ECF/Feuilles fougère.jpg'); /* Chemin absolu */
+    background-size: cover; /* Pour que l'image couvre tout l'en-tête */
+    background-position: center; /* Centre l'image */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    height: 80px; /* Définir une hauteur fixe pour l'en-tête */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header img {
+    height: 130px;
+}
+
+nav {
+    display: flex;
+    flex: 1; /* Occupe l'espace restant entre le logo et les bords */
+    justify-content: center; /* Centre les éléments de navigation horizontalement */
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    font-size: 20px; /* Ajuster la taille de la police ici */
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style pour le logo de connexion */
+.login {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
+
+.login a {
+    display: block;
+}
+
+.login-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Icône du menu burger */
+.menu-burger {
+    display: none; /* Masqué par défaut, affiché sur les petits écrans */
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    position: absolute; /* Positionnement absolu pour le centrer */
+    left: 50%; /* Centrage horizontal */
+    transform: translateX(-50%); /* Ajuste le centrage */
+    z-index: 10; /* Assurez-vous qu'il est au-dessus des autres éléments */
+}
+
+/* Style de base pour le menu de navigation */
+#menu {
+    display: flex; /* Affichage horizontal pour les grands écrans */
+    justify-content: center; /* Centre les éléments horizontalement */
+    margin: 0;
+    padding: 0;
+}
+
+#menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+/* Changer le fond des liens actifs */
+#menu a.active {
+    color: yellow; /* Couleur du lien actif */
+    background-color: rgba(0, 0, 0, 0.3); /* Optionnel : ajoute un fond léger pour mettre en évidence le lien actif */
+}
+
+/* Afficher le menu burger et masquer le menu lors de petits écrans */
+@media (max-width: 768px) {
+    .menu-burger {
+        display: block; /* Afficher le menu burger */
+    }
+
+    #menu {
+        display: none; /* Masquer le menu de navigation par défaut */
+        position: absolute;
+        top: 60px; /* Ajustez selon la hauteur de l'en-tête */
+        left: 0;
+        right: 0;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        z-index: 9; /* Assurez-vous qu'il est au-dessus du contenu */
+    }
+
+    #menu.active {
+        display: flex; /* Afficher le menu lorsque l'icône est cliquée */
+    }
+
+    #menu a {
+        padding: 15px; /* Ajuster le padding pour une meilleure visibilité */
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Style pour le lien actif */
+nav a.active {
+    color: yellow;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Styles pour la fenêtre modale */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+/* Styles pour le contenu de la modale */
+.login-modal-content {
+    background-color: #fff;
+    color: #000;
+    padding: 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Styles pour le bouton de fermeture */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Styles pour les éléments du formulaire dans la modale */
+.login-modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Réduit l'espace sous les labels */
+.login-modal-content label {
+    margin-bottom: 2px;
+}
+
+/* Réduit l'espace sous la liste déroulante */
+.login-modal-content select {
+    margin-bottom: 4px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Réduit l'espace sous les champs du formulaire */
+.login-modal-content input[type="text"],
+.login-modal-content input[type="password"] {
+    margin-bottom: 4px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Réduit l'espace au-dessus du bouton de soumission */
+.login-modal-content input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-modal-content input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Styles pour le titre dans la modale */
+.login-modal-content h2 {
+    font-size: 25px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Style pour la section contact */
+main {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contact-container {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #4CAF50;
+    text-align: center;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-container label {
+    font-size: 14px;
+    color: #333;
+}
+
+.contact-container input[type="email"],
+.contact-container input[type="text"],
+.contact-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.contact-container textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-container input[type="submit"] {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+/* Styles pour le footer */
+footer {
+    text-align: center; /* Centre le texte et le contenu */
+    padding: 20px; /* Ajoute un espace autour du contenu */
+    background-color: #333; /* Couleur de fond du footer */
+    color: #fff; /* Couleur du texte */
+    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+    width: 100%; /* Assure que le footer occupe toute la largeur de l'écran */
+   
+}
+
+footer p {
+    margin: 0; /* Retire les marges par défaut */
+    font-size: 14px; /* Taille du texte */
+}
+
+footer a {
+    color: #fff; /* Couleur des liens en blanc */
+    text-decoration: none; /* Retire le soulignement des liens */
+    margin: 0 10px; /* Espace entre les liens */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol */
+}
